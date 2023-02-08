@@ -9,12 +9,28 @@ namespace LinkedListProblems
     public class LinkedList
     {
         public Node head;
-        public void AddFirst(int data)
+        public void AddLast(int data)
         {
             Node newNode = new Node(data);
-            newNode.next = head;
-            head = newNode;
-            Console.WriteLine("{0} node inserted into linked list", newNode.data);
+            if (head == null)
+            {
+                head = newNode;
+                Console.WriteLine("{0} is inserted into linkedlist", newNode.data);
+            }
+            else
+            {
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = newNode;
+                Console.WriteLine("{0} is inserted into linkedlist", newNode.data);
+            }
+        }
+        public void Append(int data)
+        {
+            AddLast(data);
         }
         public void Display()
         {

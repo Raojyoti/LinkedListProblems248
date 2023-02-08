@@ -7,15 +7,15 @@
             LinkedList linkedList = new LinkedList();
             Console.WriteLine("Welcome to the LinkedList Problems\n-----------------------------");
             Console.WriteLine("First please select options");
-            Console.WriteLine("1.AddNodeInLinkedList\n2.Exit\n");
+            Console.WriteLine("1.AppendNodeInLinkedList\n2.Exit\n");
             int option=Convert.ToInt32(Console.ReadLine());
             switch(option)
             { 
                 case 1:
                     Console.Clear();
-                    linkedList.AddFirst(70);
-                    linkedList.AddFirst(30);
-                    linkedList.AddFirst(56);
+                    linkedList.Append(56);
+                    linkedList.Append(30);
+                    linkedList.Append(70);
                     linkedList.Display();
                     break; 
                 case 2:

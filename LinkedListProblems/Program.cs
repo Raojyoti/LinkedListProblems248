@@ -9,7 +9,7 @@ namespace LinkedListProblems
             LinkedList linkedList = new LinkedList();
             Console.WriteLine("Welcome to the LinkedList Problems\n-----------------------------");
             Console.WriteLine("First please select options");
-            Console.WriteLine("1.DeleteLastElementInLinkedList\n2.Exit\n");
+            Console.WriteLine("1.SearchElementInLinkedList\n2.Exit\n");
             int option=Convert.ToInt32(Console.ReadLine());
             switch(option)
             { 
@@ -18,7 +18,7 @@ namespace LinkedListProblems
                     linkedList.Add(56);
                     linkedList.Add(30);
                     linkedList.Add(70);
-                    linkedList.DeleteLastNode();
+                    linkedList.Search(30);
                     linkedList.Display();
                     break; 
                 case 2:

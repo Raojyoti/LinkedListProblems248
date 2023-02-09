@@ -10,7 +10,7 @@ namespace LinkedListProblems
     public class LinkedList
     {
         public Node head;
-        public void AddLast(int data)
+        public void Add(int data)
         {
             Node newNode = new Node(data);
             if (head == null)
@@ -29,18 +29,32 @@ namespace LinkedListProblems
                 Console.WriteLine("{0} is inserted into linkedlist", newNode.data);
             }
         }
-        public void DeleteFirstNode()
+        public void DeleteLastNode()
         {
-            if (head == null)
+            Node temp = head;
+            if (temp == null)
             {
-                Console.WriteLine("Linkedlist is empty please add nodes");
+                Console.WriteLine("Linked list is empty");
+            }
+            else if (temp.next == null)
+            {
+                int data = temp.data;
+                temp = null;
+                head = temp;
+                Console.WriteLine("{0} is deleted", data);
             }
             else
             {
-                Console.WriteLine("{0} is deleted from linked list", head.data);
-                head = head.next;
+                while (temp.next.next != null)
+                {
+                    temp = temp.next;
+                }
+                int lastDeletedNode = temp.next.data;
+                temp.next = null;
+                Console.WriteLine("{0} is deleted", lastDeletedNode);
             }
         }
+    
         public void Display()
         {
             if (head == null)

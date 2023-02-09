@@ -29,33 +29,16 @@ namespace LinkedListProblems
                 Console.WriteLine("{0} is inserted into linkedlist", newNode.data);
             }
         }
-        public Node InsertAtParticularPosition(int position, int data)
+        public void InsertNewNodeInBetweenNode(Node prevNode, int data)
         {
-            if (position < 1)
-                Console.WriteLine("Invalid position");
-            if (position == 1)
+            if (prevNode == null)
             {
-                var newNode = new Node(data);
-                newNode.next = head;
-                head = newNode;
+                Console.WriteLine("Given previous node cannot be null {0}");
+                return;
             }
-            else
-            {
-                while (position-- != 0) //traverse to the node previous to the position
-                {
-                    if (position == 1)
-                    {
-                        Node node = new Node(data);
-                        node.next = head.next;
-                        head.next = node;
-                        break;
-                    }
-                    head = head.next;
-                }
-                if (position != 1)
-                    Console.WriteLine("Position is out of range");
-            }
-            return head;
+            Node newNode = new Node(data);
+            newNode.next = prevNode.next;//make next of newNode as next of prevNode
+            prevNode.next = newNode;//make next of prevNode as newNode
         }
         public void Display()
         {

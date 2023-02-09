@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,24 +29,48 @@ namespace LinkedListProblems
                 Console.WriteLine("{0} is inserted into linkedlist", newNode.data);
             }
         }
-        public void Append(int data)
+        public Node InsertAtParticularPosition(int position, int data)
         {
-            AddLast(data);
+            if (position < 1)
+                Console.WriteLine("Invalid position");
+            if (position == 1)
+            {
+                var newNode = new Node(data);
+                newNode.next = head;
+                head = newNode;
+            }
+            else
+            {
+                while (position-- != 0) //traverse to the node previous to the position
+                {
+                    if (position == 1)
+                    {
+                        Node node = new Node(data);
+                        node.next = head.next;
+                        head.next = node;
+                        break;
+                    }
+                    head = head.next;
+                }
+                if (position != 1)
+                    Console.WriteLine("Position is out of range");
+            }
+            return head;
         }
         public void Display()
         {
-            if(head== null)
+            if (head == null)
             {
                 Console.WriteLine("LinkedList is empty");
             }
             else
             {
-                Node temp =head;
+                Node temp = head;
                 Console.WriteLine("\nNodes present in LinkedList:\n----------------------------");
                 while (temp != null)
                 {
-                    Console.Write(temp.data+" ");
-                    temp =temp.next;
+                    Console.Write(temp.data + " ");
+                    temp = temp.next;
                 }
             }
         }

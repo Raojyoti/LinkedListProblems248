@@ -29,16 +29,17 @@ namespace LinkedListProblems
                 Console.WriteLine("{0} is inserted into linkedlist", newNode.data);
             }
         }
-        public void InsertNewNodeInBetweenNode(Node prevNode, int data)
+        public void DeleteFirstNode()
         {
-            if (prevNode == null)
+            if (head == null)
             {
-                Console.WriteLine("Given previous node cannot be null {0}");
-                return;
+                Console.WriteLine("Linkedlist is empty please add nodes");
             }
-            Node newNode = new Node(data);
-            newNode.next = prevNode.next;//make next of newNode as next of prevNode
-            prevNode.next = newNode;//make next of prevNode as newNode
+            else
+            {
+                Console.WriteLine("{0} is deleted from linked list", head.data);
+                head = head.next;
+            }
         }
         public void Display()
         {
@@ -49,7 +50,7 @@ namespace LinkedListProblems
             else
             {
                 Node temp = head;
-                Console.WriteLine("\nNodes present in LinkedList:\n----------------------------");
+                Console.WriteLine("\nElements present in LinkedList:\n----------------------------");
                 while (temp != null)
                 {
                     Console.Write(temp.data + " ");

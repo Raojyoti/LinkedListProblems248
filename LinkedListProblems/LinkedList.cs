@@ -4,13 +4,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace LinkedListProblems
 {
     public class LinkedList
     {
         public Node head;
-        public void Add(int data)
+        public void AddLast(int data)
         {
             Node newNode = new Node(data);
             if (head == null)
@@ -29,28 +30,28 @@ namespace LinkedListProblems
                 Console.WriteLine("{0} is inserted into linkedlist", newNode.data);
             }
         }
-        public void Search(int data)
+        public bool Search(int node)
         {
-            bool isFound = false;
+            int position = 1;
             Node temp = head;
-            if (temp == null)
-                Console.WriteLine("Linked List is Empty");
+            while(temp!= null)
+            {
+                if (temp.data == node)
+                {
+                    break;
+                }
+                position++;
+                temp = temp.next;
+            }
+            if(temp== null)
+            {
+                Console.WriteLine(node + "not present in linkedlist");
+                return false;
+            }
             else
             {
-                while (temp != null)
-                {
-                    if (temp.data == data)
-                    {
-                        Console.WriteLine("{0} node is present", temp.data);
-                        isFound = true;
-                        break;
-                    }
-                    temp = temp.next;
-                }
-                if (!isFound)
-                {
-                    Console.WriteLine("{0} node is not present", data);
-                }
+                Console.WriteLine(node + "  present at " + position + " position in linkedlist");
+                return true;
             }
         }
         public void Display()
@@ -62,7 +63,7 @@ namespace LinkedListProblems
             else
             {
                 Node temp = head;
-                Console.WriteLine("\nElements present in LinkedList:\n----------------------------");
+                Console.WriteLine("\nLinkedList Sequence are:\n----------------------------");
                 while (temp != null)
                 {
                     Console.Write(temp.data + " ");

@@ -15,9 +15,9 @@ namespace LinkedListProblems
             { 
                 case 1:
                     Console.Clear();
-                    linkedList.Add(56);
-                    linkedList.Add(30);
-                    linkedList.Add(70);
+                    linkedList.AddLast(56);
+                    linkedList.AddLast(30);
+                    linkedList.AddLast(70);
                     linkedList.Search(30);
                     linkedList.Display();
                     break; 

@@ -30,6 +30,28 @@ namespace LinkedListProblems
                 Console.WriteLine("{0} is inserted into linkedlist", newNode.data);
             }
         }
+        public void InsertAfterSpecifiedNode(int addNode, int givenNode)
+        {
+            Node temp = head;
+            while(temp!=null)
+            {
+                if(temp.data==givenNode)
+                {
+                    break;
+                }
+                temp=temp.next;
+            }
+            if(temp==null)
+            {
+                Console.WriteLine(givenNode +" not present in linked list");
+            }
+            else
+            {
+                Node newNode = new Node(addNode);
+                newNode.next = temp.next;
+                temp.next = newNode;
+            }
+        }
         public bool Search(int node)
         {
             int position = 1;
@@ -45,12 +67,12 @@ namespace LinkedListProblems
             }
             if(temp== null)
             {
-                Console.WriteLine(node + "not present in linkedlist");
+                Console.WriteLine("\n"+ node + "not present in linkedlist");
                 return false;
             }
             else
             {
-                Console.WriteLine(node + "  present at " + position + " position in linkedlist");
+                Console.WriteLine("\n"+ node + " present at " + position + " position in linkedlist");
                 return true;
             }
         }

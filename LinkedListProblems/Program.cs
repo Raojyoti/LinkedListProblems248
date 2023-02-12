@@ -17,14 +17,13 @@ namespace LinkedListProblems
                     Console.Clear();
                     linkedList.AddLast(56);
                     linkedList.AddLast(30);
+                    linkedList.AddLast(40);
                     linkedList.AddLast(70);
-                    Console.WriteLine("Enter element to be inserted");
-                    int addNode = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Enter element after which to insert");
-                    int givenNode = Convert.ToInt32(Console.ReadLine());
-                    linkedList.InsertAfterSpecifiedNode(addNode,givenNode);
+                    Console.WriteLine("Enter element which you want to deleted");
+                    int deleteNode = Convert.ToInt32(Console.ReadLine());
+                    linkedList.DeleteInBetweenelement(deleteNode);
                     linkedList.Display();
-                    linkedList.Search(30);
+                    linkedList.GetSize();
                     break; 
                 case 2:
                     Console.Clear();

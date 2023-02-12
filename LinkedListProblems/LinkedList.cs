@@ -76,6 +76,47 @@ namespace LinkedListProblems
                 return true;
             }
         }
+        public void DeleteInBetweenelement(int node)
+        {
+            if(head==null)
+            {
+                Console.WriteLine("linked list is empty");
+                return;
+            }
+            if(head.data==node)
+            {
+                head=head.next;
+                return;
+            }
+            Node temp= head;
+            while(temp.next!= null)
+            {
+                if(temp.next.data==node)
+                {
+                    break;
+                }
+                temp = temp.next;
+            }
+            if (temp.next == null)
+            {
+                Console.WriteLine("Element" + node + "not present in linked list");
+            }
+            else
+            {
+                temp.next = temp.next.next;
+            }
+        }
+        public void GetSize()
+        {
+            int count = 0;
+            Node temp= head;
+            while(temp!=null)
+            {
+                count++;
+                temp= temp.next;
+            }
+            Console.WriteLine("\n\nNumber of node in linkedlist: {0}",count);
+        }
         public void Display()
         {
             if (head == null)
